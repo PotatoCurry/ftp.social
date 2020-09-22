@@ -9,7 +9,7 @@ from sqlalchemy.orm import relationship, Session
 
 from paths import assemble_ftp_path
 
-engine = create_engine(os.environ["FTPSOCIAL_DATABASE_URL"], echo=True)
+engine = create_engine("sqlite:///ftpusers.db", echo=True)
 Base = declarative_base()
 user_followers = Table('user_followers', Base.metadata,
                        Column('user_id', ForeignKey('users.id'), index=True),
